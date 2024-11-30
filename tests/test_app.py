@@ -17,7 +17,7 @@ def test_homepage():
 @pytest.mark.django_db
 def test_polls_index_page():
     client = Client()
-    url = reverse('polls')
+    url = reverse('polls_index')
     response = client.get(url)
     assert response.status_code == 200
     assert "polls" in response.content.decode()
