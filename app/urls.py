@@ -22,5 +22,6 @@ from . import views
 urlpatterns = [
     path("", views.index, name="home"),
     path("polls/", include("polls.urls")),
+    path("communities/", include("communities.urls")),
     path("admin/", admin.site.urls),
 ]
