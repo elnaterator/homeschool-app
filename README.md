@@ -2,23 +2,11 @@
 
 This is a Django project for managing homeschooling activities.
 
-## Project Structure
+## Quick Start
 
-The project has the following files and directories:
-
-- `homeschool_app/__init__.py`: Empty file that marks the `homeschool_app` directory as a Python package.
-- `homeschool_app/settings.py`: Django project settings.
-- `homeschool_app/urls.py`: URL patterns for the project.
-- `homeschool_app/wsgi.py`: WSGI server entry point.
-- `homeschool_app/asgi.py`: ASGI server entry point.
-- `homeschool_app/templates/base.html`: Base HTML template.
-- `manage.py`: Django command-line utility.
-- `Dockerfile`: Docker image configuration.
-- `docker-compose.yml`: Docker Compose configuration.
-- `pyproject.toml`: Poetry configuration.
-- `poetry.lock`: Poetry lock file.
-- `.env`: Environment variables file.
-- `README.md`: Project documentation.
+* Run `make up build=true`
+* Go to http://localhost:8000
+* Run tests with `make test`
 
 ## Setup Instructions
 

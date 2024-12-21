@@ -13,18 +13,10 @@ services:
       - db
     env_file:
       - .env
-    links:
-      - db:db
-    networks:
-      - djangonetwork
 
   db:
-    image: postgres
+    image: postgres:17
     env_file:
       - .env
     volumes:
       - ./data/db:/var/lib/postgresql/data
-
-networks:
-  djangonetwork:
-    driver: bridge
