@@ -9,3 +9,9 @@ def home(request):
 
 def menu(request):
     return render(request, 'menu.html')
+
+def header(request):
+    return render(request, 'header.html')
+
+def footer(request):
+    return render(request, 'footer.html')
