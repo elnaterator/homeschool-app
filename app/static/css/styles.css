@@ -17,6 +17,10 @@ html {
     background-color: #88ff88;
 }
 
+.bg-primary {
+    background-color: #f0f0f0 !important;
+}
+
 body {
     /*margin-bottom: 60px;*/
     /* Margin bottom by footer height */
