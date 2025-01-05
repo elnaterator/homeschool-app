@@ -11,3 +11,17 @@ def index(request):
         # "communities": communities,
     }
     return HttpResponse(template.render(context, request))
+
+def posts(request):
+    return render(request, "communities/posts.html")
+
+def communities(request):
+    # communities = Community.objects.all()
+    template = loader.get_template("communities/communities.html")
+    context = {
+        # "communities": communities,
+    }
+    return HttpResponse(template.render(context, request))
+
+def events(request):
+    return render(request, "communities/events.html")

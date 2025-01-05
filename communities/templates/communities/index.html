@@ -35,152 +35,23 @@
 
     <!-- Tab Content Section -->
     <div class="tab-content" id="myTabContent">
+
         <!-- Posts Tab -->
-        <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-
-            <div class="row">
-
-                <!-- Scrollable Cards (Posts) -->
-                <div class="col-12">
-
-                    <div class="card mb-3" style="max-height: 300px; overflow-y: scroll;">
-                        <div class="card-body">
-                            <h5 class="card-title">Post 1</h5>
-                            <p class="card-text">This is the content of post 1...</p>
-                        </div>
-                    </div>
-
-                    <div class="card mb-3" style="max-height: 300px; overflow-y: scroll;">
-                        <div class="card-body">
-                            <h5 class="card-title">Post 2</h5>
-                            <p class="card-text">This is the content of post 2...</p>
-                        </div>
-                    </div>
-
-                    <!-- Add more cards as needed -->
-                </div>
-
-            </div>
-
+        <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab"
+            hx-get="/communities/posts/" hx-trigger="load" hx-swap="innerHTML">
+            loading...
         </div>
 
         <!-- Communities Tab -->
-        <div class="tab-pane fade" id="communities" role="tabpanel" aria-labelledby="communities-tab">
-
-            <!-- Following Row -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h5>Following</h5>
-                    <div class="d-flex overflow-x-auto">
-                        <!-- Following Cards (scrollable horizontally) -->
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 1">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 1</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 2">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 2</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 3">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 3</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 4">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 4</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3 ms-auto" style="width: 50px; flex-shrink: 0;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <h6 class="card-title">></h6>
-                            </div>
-                        </div>
-                        <!-- Add more cards as needed -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recommended Row -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h5>Recommended</h5>
-                    <div class="d-flex overflow-x-auto">
-                        <!-- Recommended Cards (scrollable horizontally) -->
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 5">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 5</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 6">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 6</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 7">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 7</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 8">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 8</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3 ms-auto" style="width: 50px; flex-shrink: 0;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <h6 class="card-title">></h6>
-                            </div>
-                        </div>
-                        <!-- Add more cards as needed -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional rows (You can add more if needed) -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h5>Other Communities</h5>
-                    <div class="d-flex overflow-x-auto">
-                        <!-- Other Cards (scrollable horizontally) -->
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 9">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 9</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3" style="width: 200px; flex-shrink: 0;">
-                            <img src="{% static 'images/community-default.webp' %}" class="card-img-top" alt="community 10">
-                            <div class="card-body">
-                                <h6 class="card-title">Community 10</h6>
-                            </div>
-                        </div>
-                        <div class="card me-3 ms-auto" style="width: 50px; flex-shrink: 0;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <h6 class="card-title">></h6>
-                            </div>
-                        </div>
-                        <!-- Add more cards as needed -->
-                    </div>
-                </div>
-
-            </div>
-
+        <div class="tab-pane fade" id="communities" role="tabpanel" aria-labelledby="communities-tab"
+            hx-get="/communities/communities/" hx-trigger="load" hx-swap="innerHTML">
+            loading...
         </div>
 
         <!-- Events Tab -->
-        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-            <!-- Content for Events tab -->
+        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab"
+            hx-get="/communities/events/" hx-trigger="load" hx-swap="innerHTML">
+            loading...
         </div>
     </div>
 
