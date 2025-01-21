@@ -7,6 +7,7 @@ This is a Django project for managing homeschooling activities.
 * Run `make up build=true`
 * Go to http://localhost:8000
 * Run tests with `make test`
+* Run db migrations with `make migrate`
 
 ## Setup Instructions
 

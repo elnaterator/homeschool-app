@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.template import loader
 from .models import Community
+from django.templatetags.static import static
 
 # Create your views here.
 def index(request):
@@ -15,8 +16,11 @@ def index(request):
 def communities(request):
     # communities = Community.objects.all()
     template = loader.get_template("communities/communities.html")
+    communities_followed = Community.objects.all()
+    communities_recommended = Community.objects.all()
     context = {
-        # "communities": communities,
+        "communities_followed": communities_followed,
+        "communities_recommended": communities_recommended,
     }
     return HttpResponse(template.render(context, request))
 

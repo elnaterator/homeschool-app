@@ -1,0 +1,20 @@
+{% load static %}
+{% static 'images/community-default.webp' as default_image_url %}
+<div class="d-flex overflow-x-auto">
+    {% for community in communities_list %}
+    <div class="community-thumbnail card me-3" style="width: 300px; height: 300px; flex-shrink: 0;">
+        <img src="{{ community.image_url|default:default_image_url }}" title="{{ community.name }}" class="card-img-top"
+            alt="{{ community.name }}" style="width: 300px; height: 150px;">
+        <div class="card-body">
+            <h6 class="card-title">{{ community.name }}</h6>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="card me-3 ms-auto" style="width: 50px; flex-shrink: 0;">
+        <div class="card-body d-flex align-items-center justify-content-center" title="Load more">
+            <img src="{% static 'images/arrow-right.webp' %}" class="img-fluid rounded"
+                alt="Load more" style="width: 30px;">
+        </div>
+    </div>
+    <!-- Add more cards as needed -->
+</div>
