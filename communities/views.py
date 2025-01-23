@@ -18,6 +18,10 @@ def communities(request):
     template = loader.get_template("communities/communities.html")
     communities_followed = Community.objects.all()
     communities_recommended = Community.objects.all()
+    for c in communities_followed:
+        c.member_count = c.members.count()
+    for c in communities_recommended:
+        c.member_count = c.members.count()
     context = {
         "communities_followed": communities_followed,
         "communities_recommended": communities_recommended,
