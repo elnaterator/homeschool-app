@@ -126,6 +126,7 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app', 'static'),
+    os.path.join(BASE_DIR, 'communities', 'static')
 ]
 
 # Default primary key field type

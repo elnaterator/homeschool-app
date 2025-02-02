@@ -4,7 +4,7 @@
     <div class="row mb-4">
         <div class="col-12">
             <h5>Following</h5>
-            {% include 'communities/communities_list.html' with communities_list=communities_followed %}
+            {% include 'communities/horizontal_list_partial.html' with communities_list=communities_followed %}
         </div>
     </div>
 
@@ -12,7 +12,7 @@
     <div class="row mb-4">
         <div class="col-12">
             <h5>Recommended</h5>
-            {% include 'communities/communities_list.html' with communities_list=communities_recommended %}
+            {% include 'communities/horizontal_list_partial.html' with communities_list=communities_recommended %}
             </div>
         </div>
     </div>

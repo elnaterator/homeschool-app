@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Community(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
     description = models.TextField()
     image_url = models.CharField(default="http://localhost:8000/static/images/community-default.webp", null=True, blank=True)

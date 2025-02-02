@@ -21,13 +21,7 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("home/", views.home, name="home"),
-    path("menu/", views.menu, name="menu"),
-    path("header/", views.header, name="header"),
-    path("footer/", views.footer, name="footer"),
-    
     path("polls/", include("polls.urls")),
     path("communities/", include("communities.urls")),
-    
     path("admin/", admin.site.urls),
 ]
