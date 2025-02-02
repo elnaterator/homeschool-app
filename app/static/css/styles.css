@@ -63,3 +63,33 @@ code {
     overflow-y: auto;
 }
 
+.nav-link-wrapper {
+    padding: 0rem 2rem 0 2rem;
+    width: 6rem;
+}
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    background-color: #ffffff;
+    color: #111;
+    font-size: 1rem;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -2em;
+    right: 0;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    z-index: 99999;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}

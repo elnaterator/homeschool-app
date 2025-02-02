@@ -24,36 +24,38 @@
                     <!-- Middle Column -->
                     <div class="col-8 text-center d-flex justify-content-center align-items-center">
 
-                        <a class="navbar-brand me-3" href="#" 
-                            hx-get="/" hx-swap="innerHTML" hx-trigger="click" hx-target="#main-content" hx-push-url="true">
+                        <a class="navbar-brand me-3" href="#" hx-get="/" hx-swap="innerHTML" hx-trigger="click"
+                            hx-target="#main-content" hx-push-url="true" data-title="Home">
                             <img class="media-object" src="{% static 'images/logo.webp' %}" alt="logo" width="40"
                                 height="40">
                         </a>
-                        <a class="navbar-brand me-3" href="#" 
-                            hx-get="/" hx-swap="innerHTML" hx-trigger="click" hx-target="#main-content" hx-push-url="true">
+                        <a class="navbar-brand me-3" href="#" hx-get="/" hx-swap="innerHTML" hx-trigger="click"
+                            hx-target="#main-content" hx-push-url="true" data-title="Home">
                             <span class="navbar-brand">Homeschool Hub</span>
                         </a>
                         <ul class="navbar-nav ms-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#" 
-                                    hx-get="/communities/" hx-swap="innerHTML"
+                                <a class="nav-link" href="#" hx-get="/communities/" hx-swap="innerHTML"
                                     hx-trigger="click" hx-target="#main-content" hx-push-url="true">
-                                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                                    Communities
+                                    <div class="nav-link-wrapper" data-title="Communities">
+                                        <i class="bi bi-people-fill" style="font-size: 1.5rem;"></i>
+                                    </div>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" hx-get="/resources/" hx-swap="innerHTML"
-                                    hx-trigger="click" hx-target="#main-content" hx-push-url="true">
-                                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-                                    Resources
+                                <a class="nav-link" href="#" hx-get="/resources/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#main-content" hx-push-url="true">
+                                    <div class="nav-link-wrapper" data-title="Resources">
+                                        <i class="bi bi-book-fill" style="font-size: 1.5rem;"></i>
+                                    </div>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" hx-get="/schedule/" hx-swap="innerHTML"
-                                    hx-trigger="click" hx-target="#main-content" hx-push-url="true">
-                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                    Schedule
+                                <a class="nav-link" href="#" hx-get="/schedule/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#main-content" hx-push-url="true">
+                                    <div class="nav-link-wrapper" data-title="Schedule">
+                                        <i class="bi bi-calendar-fill" style="font-size: 1.5rem;"></i>
+                                    </div>
                                 </a>
                             </li>
                         </ul>
@@ -63,8 +65,8 @@
                     <div class="col-2 text-end">
                         <div class="dropdown d-inline">
                             <a class="btn btn-link text-secondary" href="#" role="button" id="helpDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-question-circle-fill"></i>
+                                data-bs-toggle="dropdown" aria-expanded="false" data-title="Help">
+                                <i class="bi bi-question-circle-fill" style="font-size: 1.5rem;"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="helpDropdown">
                                 <li><a class="dropdown-item" href="#">FAQ</a></li>
@@ -73,8 +75,8 @@
                         </div>
                         <div class="dropdown d-inline">
                             <a class="btn btn-link text-secondary" href="#" role="button" id="accountDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle"></i>
+                                data-bs-toggle="dropdown" aria-expanded="false" data-title="My Account">
+                                <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
