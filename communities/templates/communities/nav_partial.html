@@ -1,0 +1,61 @@
+<!-- Top Row (Responsive Header) -->
+<div class="row align-items-center mb-3">
+
+    <!-- Search Bar (mobile top) -->
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <input type="search" class="form-control" placeholder="Search" aria-label="Search">
+    </div>
+
+    <!-- Title (mobile top) -->
+    <div class="col-12 col-md-4 text-center mb-2 mb-md-0">
+        <h1>Communities</h1>
+    </div>
+
+    <!-- Tabs (mobile bottom) -->
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <ul class="nav nav-pills justify-content-center justify-content-md-end" id="communities-tab-wrapper" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="communities-tab" href="#communities" data-bs-toggle="tab" role="tab"
+                    hx-get="/communities/communities/" hx-swap="innerHTML" hx-trigger="click"
+                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="communities"
+                    aria-selected="true">Communities</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="updates-tab" href="#updates" data-bs-toggle="tab" role="tab"
+                    hx-get="/communities/updates/" hx-swap="innerHTML" hx-trigger="click"
+                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="updates"
+                    aria-selected="false">Updates</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
+                    hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
+                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
+                    aria-selected="false">Events</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var url = window.location.href;
+        if (url.endsWith('/')) {
+            url = url.slice(0, -1);
+        }
+        var loc = url.substring(url.lastIndexOf('/') + 1);
+        document.getElementById('communities-tab').classList.remove('active'); 
+        document.getElementById('updates-tab').classList.remove('active');
+        document.getElementById('events-tab').classList.remove('active');
+        switch (loc) {
+            case 'communities':
+                var button = document.getElementById('communities-tab').classList.add('active');
+                break;
+            case 'updates':
+                var button = document.getElementById('updates-tab').classList.add('active');
+                break;
+            case 'events':
+                var button = document.getElementById('events-tab').classList.add('active');
+                break;
+        }
+    });
+</script>

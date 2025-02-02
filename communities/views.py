@@ -26,20 +26,18 @@ def communities(request: HttpRequest):
     return html_response("communities", request, context)
 
 def updates(request: HttpRequest):
-    return render(request, "communities/updates.html")
+    return html_response("updates", request)
 
 def events(request: HttpRequest):
-    return render(request, "communities/events.html")
+    return html_response("events", request)
 
 def community(request):
     id = request.GET.get("community_id")
-    print(id)
     community = Community.get(id)
     context = {
         "community": community,
     }
-    template = loader.get_template("communities/community.html")
-    return HttpResponse(template.render(context, request))
+    return html_response("community", request, context)
 
 def html_response(name: str, request: HttpRequest, context: dict = {}) -> HttpResponse:
     ''' 
