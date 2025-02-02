@@ -6,7 +6,7 @@
     <div class="community-thumbnail card me-3" 
         style="width: 300px; height: 300px; flex-shrink: 0;"
         hx-get="/communities/{{ community.id }}/" hx-swap="innerHTML"
-        hx-trigger="click" hx-target="#main-content">
+        hx-trigger="click" hx-target="#communities-content-wrapper" hx-push-url="true">
 
         <img src="{{ community.image_url|default:default_image_url }}" title="{{ community.name }}" class="card-img-top"
             alt="{{ community.name }}" style="width: 300px; height: 150px;">

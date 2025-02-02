@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest
 from django.template import loader
 from .models import Community
@@ -8,7 +8,7 @@ from django.templatetags.static import static
 def index(request: HttpRequest):
     communities = Community.objects.all()
     for c in communities:
-        c.member_count = c.members.count()
+       update_community_info(c) 
     context = {
         "communities_followed": communities,
         "communities_recommended": communities,
@@ -31,9 +31,9 @@ def updates(request: HttpRequest):
 def events(request: HttpRequest):
     return html_response("events", request)
 
-def community(request):
-    id = request.GET.get("community_id")
-    community = Community.get(id)
+def community(request: HttpRequest, community_id: int):
+    community = get_object_or_404(Community, pk=community_id)
+    update_community_info(community)
     context = {
         "community": community,
     }
@@ -49,3 +49,6 @@ def html_response(name: str, request: HttpRequest, context: dict = {}) -> HttpRe
     else:
         template = loader.get_template(f"communities/{name}.html")
     return HttpResponse(template.render(context, request))
+
+def update_community_info(community: Community):
+    community.member_count = community.members.count()
