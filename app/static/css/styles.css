@@ -93,3 +93,11 @@ code {
 [data-title] {
     position: relative;
 }
+
+.clamp-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
