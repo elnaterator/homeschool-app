@@ -1,7 +1,32 @@
+
+.community-thumbnail {
+    margin: 5px 0;
+}
+
+.community-thumbnail .card-body {
+    max-height: 150px;
+}
+
 .community-thumbnail .card-body:hover {
     background-color: rgba(212, 212, 212, 0.5);
     transition: background-color 0.2s;
 }
+
+.community-thumbnail .scroll-box {
+    background-color: rgba(150, 150, 150, 0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.community-thumbnail .scroll-box i {
+    font-size: 40px;
+    color: white;
+}
+
 
 img.community-banner-img {
     width: 100%;
@@ -14,5 +39,6 @@ img.community-banner-img {
 #community-info {
     margin-top: 20px;
 }
+
 
 
