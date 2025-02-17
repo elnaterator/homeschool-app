@@ -8,6 +8,7 @@ This is a Django project for managing homeschooling activities.
 * Go to http://localhost:8000
 * Run tests with `make test`
 * Run db migrations with `make migrate`
+* Set up super user with `make bash` and then `python manage.py createsuperuser`
 
 ## Setup Instructions
 
