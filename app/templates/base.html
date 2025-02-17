@@ -15,10 +15,10 @@
     <!-- htmx -->
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
-    {% load static %}
+    {% load sass_tags %}
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'communities/css/styles.css' %}">
+    <link rel="stylesheet" href="{% sass_src 'scss/styles.scss' %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% sass_src 'communities/scss/styles.scss' %}" type="text/css" media="screen" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
