@@ -7,9 +7,9 @@ from django.test import Client
 os.environ['DJANGO_SETTINGS_MODULE'] = 'app.settings'
 
 @pytest.mark.django_db
-def test_homepage():
+def test_index_page():
     client = Client()
-    url = reverse('home')
+    url = reverse('index')
     response = client.get(url)
     assert response.status_code == 200
     assert "Hello" in response.content.decode()

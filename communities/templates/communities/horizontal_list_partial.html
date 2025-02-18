@@ -1,0 +1,31 @@
+{% load static %}
+{% static 'images/community-default.webp' as default_image_url %}
+<div class="d-flex overflow-x-auto">
+    {% for community in communities_list %}
+
+    <div class="community-thumbnail card me-3" 
+        style="width: 300px; height: 300px; flex-shrink: 0;"
+        hx-get="/communities/{{ community.id }}/" hx-swap="innerHTML"
+        hx-trigger="click" hx-target="#communities-content-wrapper" hx-push-url="true">
+
+        <img src="{{ community.image_url|default:default_image_url }}" title="{{ community.name }}" class="card-img-top"
+            alt="{{ community.name }}" style="width: 298px; height: 150px;">
+
+        <div class="card-body">
+            <h6 class="card-title line-clamp-2">{{ community.name }}</h6>
+            <p class="metadata line-clamp-1">{{ community.member_count }} members · Homeschool Co-op</p>
+            <p class="description line-clamp-2">{{ community.description }}</p>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    <div class="community-thumbnail scroll-box">
+        <div class="align-items-center justify-content-center" title="Load more">
+            <i class="bi bi-caret-right-fill" style="font-size: 1.5rem;"></i>
+        </div>
+    </div>
+    
+    <!-- Add more cards as needed -->
+</div>

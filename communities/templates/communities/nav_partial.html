@@ -1,0 +1,50 @@
+<!-- Top Row (Responsive Header) -->
+<div class="row align-items-center mb-3">
+
+    <!-- Title (mobile top) -->
+    <div class="col-12 col-md-3 text-left mb-2 mb-md-0">
+        <a class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#" hx-get="/communities/" hx-swap="innerHTML" hx-trigger="click"
+            hx-target="#main-content" hx-push-url="true">
+            <h1 class="communities-title">Communities</h1>
+        </a>
+    </div>
+
+    <!-- Tabs (mobile bottom) -->
+    <div class="col-12 col-md-9 mb-2 mb-md-0">
+        <ul class="nav nav-pills justify-content-center justify-content-md-end" id="communities-tab-wrapper"
+            role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="updates-tab" href="#updates" data-bs-toggle="tab" role="tab"
+                    hx-get="/communities/updates/" hx-swap="innerHTML" hx-trigger="click"
+                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="updates"
+                    aria-selected="false">Updates</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
+                    hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
+                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
+                    aria-selected="false">Events</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var url = window.location.href;
+        if (url.endsWith('/')) {
+            url = url.slice(0, -1);
+        }
+        var loc = url.substring(url.lastIndexOf('/') + 1);
+        document.getElementById('updates-tab').classList.remove('active');
+        document.getElementById('events-tab').classList.remove('active');
+        switch (loc) {
+            case 'updates':
+                var button = document.getElementById('updates-tab').classList.add('active');
+                break;
+            case 'events':
+                var button = document.getElementById('events-tab').classList.add('active');
+                break;
+        }
+    });
+</script>
