@@ -26,6 +26,25 @@ def communities(request: HttpRequest):
     return html_response("communities", request, context)
 
 def updates(request: HttpRequest):
+    if request.method == "POST":
+        # create new update
+        pass
+    elif request.method == "PUT":
+        # update existing update
+        pass
+    elif request.method == "DELETE":
+        # delete existing update
+        pass
+    elif request.method == "GET":
+        if request.GET.get("community_id"):
+            # get updates for a specific community
+            pass
+        elif request.GET.get("update_id"):
+            # get a specific update
+            pass
+        else:
+            # get all updates
+            pass
     return html_response("updates", request)
 
 def events(request: HttpRequest):

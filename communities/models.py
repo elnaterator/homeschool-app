@@ -29,3 +29,26 @@ class CommunityMember(models.Model):
 
     def __str__(self) -> str:
         return self.user.username
+    
+class Update(models.Model):
+    id = models.AutoField(primary_key=True)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE, related_name="posts")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.title
+    
+class Comment(models.Model):
+    id = models.AutoField(primary_key=True)
+    post = models.ForeignKey(Update, on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return super().__str__()
