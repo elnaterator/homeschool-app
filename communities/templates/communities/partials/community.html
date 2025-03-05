@@ -1,70 +1,77 @@
 {% load static %}
 {% static 'images/community-default.webp' as default_image_url %}
 
-<div id="community-content">
+<div class="container-fluid">
 
-    <img class="community-banner-img" src="{{ community.image_url|default:default_image_url }}"
-        title="{{ community.name }}" alt="{{ community.name }}">
+    {% include 'communities/partials/nav.html' %}
 
-    <div class="row my-2">
+    <div id="communities-content-wrapper">
+        <div id="community-content">
 
-        <div class="col-12 col-md-8 mb-2 mb-md-0">
+            <img class="community-banner-img" src="{{ community.image_url|default:default_image_url }}"
+                title="{{ community.name }}" alt="{{ community.name }}">
 
-            <h2 class="card-title">{{ community.name }}</h2>
-            <p>{{ community.member_count }} members · Private Community</p>
+            <div class="row my-2">
 
-            <div class="col-12 col-md-8 mb-2 mb-md-0">
+                <div class="col-12 col-md-8 mb-2 mb-md-0">
 
-                <ul class="nav nav-pills justify-content-left" id="communities-tab-wrapper" role="tablist">
+                    <h2 class="card-title">{{ community.name }}</h2>
+                    <p>{{ community.member_count }} members · Private Community</p>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="updates-tab" href="#updates" data-bs-toggle="tab" role="tab"
-                            hx-get="/communities/updates/" hx-swap="innerHTML" hx-trigger="click"
-                            hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="updates"
-                            aria-selected="false">Updates</a>
-                    </li>
+                    <div class="col-12 col-md-8 mb-2 mb-md-0">
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
-                            hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
-                            hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
-                            aria-selected="false">Events</a>
-                    </li>
+                        <ul class="nav nav-pills justify-content-left" id="communities-tab-wrapper" role="tablist">
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
-                            hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
-                            hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
-                            aria-selected="false">Members</a>
-                    </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="updates-tab" href="#updates" data-bs-toggle="tab"
+                                    role="tab" hx-get="/communities/updates/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="updates"
+                                    aria-selected="false">Updates</a>
+                            </li>
 
-                </ul>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
+                                    hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
+                                    aria-selected="false">Events</a>
+                            </li>
 
-            </div>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
+                                    hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
+                                    aria-selected="false">Members</a>
+                            </li>
 
-            <div id="community-body" class="my-2 my-md-2">
-                <div>
-                    <p>content coming soon</p>
+                        </ul>
+
+                    </div>
+
+                    <div id="community-body" class="my-2 my-md-2">
+                        <div>
+                            <p>content coming soon</p>
+                        </div>
+                    </div>
+
                 </div>
+
+                <div class="col-12 col-md-4 text-center mt-2 mt-md-4">
+
+                    <div id="community-about" class="card" style="min-height: 400px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Who are we...</h5>
+                            <p class="card-text">{{ community.description }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+
 
         </div>
-
-        <div class="col-12 col-md-4 text-center mt-2 mt-md-4">
-
-            <div id="community-about" class="card" style="min-height: 400px;">
-                <div class="card-body">
-                    <h5 class="card-title">Who are we...</h5>
-                    <p class="card-text">{{ community.description }}</p>
-                </div>
-            </div>
-
-        </div>
-
     </div>
-
-
-
+</div>
 
 
 

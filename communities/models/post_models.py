@@ -30,9 +30,9 @@ class Comment(models.Model):
     
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="posts_created")
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="comments_created")
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="posts_updated")
+    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="comments_updated")
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):

@@ -1,8 +1,10 @@
+import logging
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, HttpRequest
 from ..models.community_models import Community
 from ..utils import html_response
 
+logger = logging.getLogger(__name__)
 
 def communities(request: HttpRequest):
 
@@ -33,8 +35,8 @@ def communities(request: HttpRequest):
 
 def community(request: HttpRequest, community_id: int):
 
+    logger.info("made it here")
     if request.method == "GET":
-        community_id = request.GET.get("community_id")
         community = get_object_or_404(Community, pk=community_id)
         context = {"community": community}
         return html_response("community", request, context)
