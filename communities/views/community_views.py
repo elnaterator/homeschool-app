@@ -65,12 +65,16 @@ def community(request: HttpRequest, community_id: int):
         return HttpResponse(status=405, content="Method Not Allowed")
 
 
-def community_events(request: HttpRequest):
-    return html_response("events", request)
+def community_events(request: HttpRequest, community_id: int):
+    return html_response("community_events", request)
 
 
-def community_posts(request: HttpRequest):
-    return html_response("posts", request)
+def community_posts(request: HttpRequest, community_id: int):
+    return html_response("community_posts", request)
+
+
+def community_members(request: HttpRequest, community_id: int):
+    return html_response("community_members", request)
 
 
 #

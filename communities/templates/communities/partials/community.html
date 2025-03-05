@@ -23,23 +23,23 @@
                         <ul class="nav nav-pills justify-content-left" id="communities-tab-wrapper" role="tablist">
 
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="updates-tab" href="#updates" data-bs-toggle="tab"
-                                    role="tab" hx-get="/communities/updates/" hx-swap="innerHTML" hx-trigger="click"
-                                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="updates"
-                                    aria-selected="false">Updates</a>
+                                <a class="nav-link active" id="posts-tab" href="#posts" data-bs-toggle="tab"
+                                    role="tab" hx-get="/communities/{{ community.id }}/posts/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#community-body" aria-controls="posts"
+                                    aria-selected="false">Posts</a>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
-                                    hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
-                                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
+                                    hx-get="/communities/{{ community.id }}/events/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#community-body" aria-controls="events"
                                     aria-selected="false">Events</a>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="events-tab" href="#events" data-bs-toggle="tab" role="tab"
-                                    hx-get="/communities/events/" hx-swap="innerHTML" hx-trigger="click"
-                                    hx-target="#communities-content-wrapper" hx-push-url="true" aria-controls="events"
+                                    hx-get="/communities/{{ community.id }}/members/" hx-swap="innerHTML" hx-trigger="click"
+                                    hx-target="#community-body" aria-controls="events"
                                     aria-selected="false">Members</a>
                             </li>
 
@@ -49,7 +49,7 @@
 
                     <div id="community-body" class="my-2 my-md-2">
                         <div>
-                            <p>content coming soon</p>
+                            {% include 'communities/partials/community_posts.html' %}
                         </div>
                     </div>
 
