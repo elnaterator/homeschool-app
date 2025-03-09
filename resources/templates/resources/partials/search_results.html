@@ -1,0 +1,49 @@
+<div id="search-results-inner">
+    {% for resource in resources %}
+    <div class="col-12 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <!-- First Row: Title and Provider Info -->
+                <div class="row">
+                    <div class="col-9">
+                        <h5 class="card-title">
+                            <a href="/resources/{{ resource.resource_id }}" class="text-decoration-none">
+                                {{ resource.title }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a href="/provider/{{ resource.provider.id }}" class="text-muted text-decoration-none">
+                            {{ resource.provider.name }}
+                        </a>
+                    </div>
+                </div>
+                <!-- Second Row: Description -->
+                <div class="row">
+                    <div class="col-12">
+                        <p class="card-text">{{ resource.description }}</p>
+                    </div>
+                </div>
+                <!-- Third Row: Tags, Link, and More Icons -->
+                <div class="row">
+                    <div class="col-6">
+                        <!-- render tags -->
+                        {% for tag in resource.tags.all %}
+                        <span class="badge bg-secondary me-2">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="{{ resource.link }}" target="_blank" class="text-decoration-none me-2">
+                            <i class="bi bi-globe"></i>
+                        </a>
+                        <i class="bi bi-share me-2"></i>
+                        <i class="bi bi-bookmark me-2"></i>
+                        <i class="bi bi-heart me-1"></i>
+                        <span>{{ resource.favorited_count }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
