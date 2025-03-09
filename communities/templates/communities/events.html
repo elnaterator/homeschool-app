@@ -4,15 +4,6 @@
 
 {% block content %}
 
-<div class="container-fluid">
-
-    {% include 'communities/nav_partial.html' %}
-
-    <!-- Tab Content Section -->
-    <div id="communities-content-wrapper">
-        {% include 'communities/events_partial.html' %}
-    </div>
-
-</div>
+{% include 'communities/partials/events.html' %}
 
 {% endblock %}

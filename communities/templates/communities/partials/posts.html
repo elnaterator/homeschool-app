@@ -1,0 +1,113 @@
+{% load static %}
+
+<div class="container-fluid">
+
+    {% include 'communities/partials/nav.html' %}
+
+    <div id="communities-content-wrapper">
+        <div id="updates-content" class="row">
+
+            <!-- Scrollable Cards (Updates) -->
+            <div id="updates-list" class="col-12">
+
+                <div class="update card mb-3">
+                    <div class="card-body">
+
+                        <div class="update-title">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="{% static 'images/community-default.webp' %}" class="img-fluid rounded"
+                                    alt="community" style="max-height: 40px;">
+                                <div class="m-0 ms-3">
+                                    <a href="#"
+                                        class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                        <h6 class="m-0">My Homeschool Co-Op</h6>
+                                    </a>
+                                    <p class="m-0">
+                                        <span class="text-muted">Susan B Anthony</span> · <span
+                                            class="text-muted">Yesterday at 1:40 PM</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="update-body card-text">
+                            <h4 class="mb-2">Bring Snacks Friday!</h4>
+                            <p class="mb-2">Don't forget this friday to bring snacks!</p>
+                            <p class="mb-2">We will have all sorts of cool stuff happening!</p>
+                            <img src="{% static 'images/snacks.webp' %}" class="img-fluid mb-2" alt="snacks"
+                                style="max-height: 300px;">
+                            <p class="mb-2">See you all there!</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="update col-12">
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+
+                            <div class="update-title">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="{% static 'images/community-default.webp' %}" class="img-fluid rounded"
+                                        alt="community" style="max-height: 40px;">
+                                    <div class="m-0 ms-3">
+                                        <a href="#"
+                                            class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                            <h6 class="m-0">Another Community</h6>
+                                        </a>
+                                        <p class="m-0">
+                                            <span class="text-muted">John Smith</span> · <span
+                                                class="text-muted">January 2 at 10:43 AM</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="update-body card-text">
+                                <h4 class="mb-2">Quick Update!</h4>
+                                <p class="mb-2">We will not be having class next friday!</p>
+                                <p class="mb-2">Please make sure to check your email for more information!</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="update col-12">
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+
+                            <div class="update-title">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="{% static 'images/community-default.webp' %}" class="img-fluid rounded"
+                                        alt="community" style="max-height: 40px;">
+                                    <div class="m-0 ms-3">
+                                        <a href="#"
+                                            class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                            <h6 class="m-0">Another Community</h6>
+                                        </a>
+                                        <p class="m-0">
+                                            <span class="text-muted">John Smith</span> · <span
+                                                class="text-muted">January 2 at 10:43 AM</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="update-body card-text">
+                                <h4 class="mb-2">Another Update!</h4>
+                                <p class="mb-2">We will not be having class next friday!</p>
+                                <p class="mb-2">Please make sure to check your email for more information!</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </div>
+</div>

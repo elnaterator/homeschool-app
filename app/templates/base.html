@@ -29,7 +29,7 @@
 <body>
 
     <header class="header bg-primary text-white pt-0 pb-1" id="header">
-        {% include 'header_partial.html' %}
+        {% include 'partials/header.html' %}
     </header>
 
     <div id="body" class="container-fluid">
@@ -37,13 +37,13 @@
 
             <!-- Sidebar -->
             <aside class="col-2 bg-light border-end" id="sidebar-menu">
-                {% include 'menu_partial.html' %}
+                {% include 'partials/menu.html' %}
             </aside>
 
             <!-- Main Content -->
             <main class="col-10 py-3" id="main-content">
                 {% block content %}
-                {% include 'home_partial.html' %}
+                {% include 'partials/index.html' %}
                 {% endblock %}
             </main>
 
@@ -51,7 +51,7 @@
     </div>
 
     <footer class="footer bg-dark text-white text-center py-1">
-        {% include 'footer_partial.html' %}
+        {% include 'partials/footer.html' %}
     </footer>
 
 </body>
