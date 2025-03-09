@@ -24,6 +24,9 @@ makemigrations: ## Create django db migrations
 migrate: ## Run django db migrations
 	docker compose run --rm $(BUILD_FLAG) web python manage.py migrate
 
+rollback: ## Rollback django db migrations
+	docker compose run --rm $(BUILD_FLAG) web python manage.py migrate --fake
+
 shell: ## Run django shell
 	docker compose run --rm $(BUILD_FLAG) web python manage.py shell
 
