@@ -6,29 +6,42 @@ from django.db import migrations, models
 
 
 def create_search_trigger(apps, schema_editor):
-    table_name = apps.get_model("resources", "Resource")._meta.db_table
+    resources_table = apps.get_model("resources", "Resource")._meta.db_table
+    provider_table = apps.get_model("resources", "Provider")._meta.db_table
     schema_editor.execute(f"""
-        DROP TRIGGER IF EXISTS search_text_update ON {table_name};
+        DROP TRIGGER IF EXISTS search_text_update ON {resources_table};
         DROP FUNCTION IF EXISTS update_search_text;
                           
         CREATE FUNCTION update_search_text() RETURNS trigger AS $$
         BEGIN
             NEW.search_text := 
                 setweight(to_tsvector('english', NEW.title), 'A') || 
-                setweight(to_tsvector('english', NEW.resource_type), 'B') || 
-                setweight(to_tsvector('english', NEW.description), 'C');
+                setweight(to_tsvector('english', COALESCE(NEW.resource_type, '')), 'B') || 
+                setweight(to_tsvector('english', COALESCE(NEW.description, '')), 'C') ||
+                setweight(to_tsvector('english', COALESCE((
+                    SELECT string_agg(t.name, ' ') 
+                    FROM resources_tag t
+                    JOIN resources_resource_tags rt ON rt.tag_id = t.id
+                    WHERE rt.resource_id = NEW.resource_id
+                ), '')), 'D') ||
+                setweight(to_tsvector('english', COALESCE((
+                    SELECT CONCAT_WS(' ', name, description, link) 
+                    FROM resources_provider 
+                    WHERE id = NEW.provider_id
+                ), '')), 'D') ||
+                setweight(to_tsvector('english', COALESCE(NEW.link, '')), 'D');
             RETURN NEW;
         END;
         $$ LANGUAGE plpgsql;
 
         CREATE TRIGGER search_text_update BEFORE INSERT OR UPDATE
-        ON {table_name} FOR EACH ROW EXECUTE FUNCTION update_search_text();
+        ON {resources_table} FOR EACH ROW EXECUTE FUNCTION update_search_text();
     """)
 
 def drop_search_trigger(apps, schema_editor):
-    table_name = apps.get_model("resources", "Resource")._meta.db_table
+    resources_table = apps.get_model("resources", "Resource")._meta.db_table
     schema_editor.execute(f"""
-        DROP TRIGGER IF EXISTS search_text_update ON {table_name};
+        DROP TRIGGER IF EXISTS search_text_update ON {resources_table};
         DROP FUNCTION IF EXISTS update_search_text;
     """)
 

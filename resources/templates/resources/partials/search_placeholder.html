@@ -1,4 +1,12 @@
 <div class="container centered-container">
+    {% if is_empty_search %}
+    <div class="card instructions-card">
+        <div class="card-body">
+            <h5 class="card-title text-center">No search results found</h5>
+            <p class="card-text text-center">Try searching for something else</p>
+        </div>
+    </div>
+    {% endif %}
     <div class="card instructions-card">
         <div class="card-body">
             <h5 class="card-title text-center">Search for Resources</h5>
@@ -13,6 +21,7 @@
 <style>
     .centered-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 40vh;
@@ -20,5 +29,6 @@
     .instructions-card {
         max-width: 1000px;
         width: 100%;
+        margin-bottom: 20px; /* Add some space between the cards */
     }
 </style>

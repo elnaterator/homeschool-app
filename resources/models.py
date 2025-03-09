@@ -28,7 +28,7 @@ class Resource(models.Model):
 
     class ResourceType(models.TextChoices):
         COMMUNITY = "community", "Community"
-        CURRICULUM = "video", "Video"
+        CURRICULUM = "curriculum", "Curriculum"
         BOOK = "book", "Book"
         COURSE = "course", "Course"
         HOMESCHOOL_COOP = "homeschool_coop", "Homeschool Co-op"
